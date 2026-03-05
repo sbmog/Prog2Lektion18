@@ -1,12 +1,9 @@
 package opgave02.primenumbers;
 
-import java.time.Duration;
-import java.time.Instant;
+public class SieveOfEratosthenes implements PrimeNumberFinder{
 
-public class SieveOfEratosthenes {
-    public void findPrimeNumbers(int n)
-    {
-        Instant start = Instant.now();
+    @Override
+    public void findPrimeNumbers(int n) {
         // Create a boolean array "prime[0..n]" and
         // initialize all entries it as true. A value in
         // prime[i] will finally be false if i is Not a
@@ -33,9 +30,5 @@ public class SieveOfEratosthenes {
             if (prime[i])
                 System.out.print(i + " ");
         }
-        System.out.println();
-        Instant finish = Instant.now();
-        System.out.println(Duration.between(start, finish).toMillis() + " ms.");
-
     }
 }

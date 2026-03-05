@@ -1,21 +1,23 @@
 package opgave03;
 
-import opgave03.models.vehicles.Car;
-import opgave03.models.vehicles.CarType;
-import opgave03.models.vehicles.Motorcycle;
-import opgave03.models.vehicles.Vehicle;
+import opgave03.models.vehicles.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Opgave03 {
     public static void main(String[] args) {
-        List<Vehicle> vehicles = List.of(
-                new Car("Ford", "Mustang", CarType.SEDAN),
-                new Car("Nissan", "Leaf", CarType.HATCHBACK),
-                new Car("Volkswagen", "Golf", CarType.CABRIOLET),
-                new Motorcycle("Harley-Davidson", "Street Bob", 700),
-                new Motorcycle("Kawasaki", "Ninja", 1000)
-        );
+        List<Vehicle> vehicles = new ArrayList<>(List.of(
+                new RentableVehicle(new Car("Ford", "Mustang", CarType.SEDAN), 799.95),
+                new RentableVehicle(new Car("Nissan", "Leaf", CarType.HATCHBACK), 499.95),
+                new RentableVehicle(new Car("Volkswagen", "Golf", CarType.CABRIOLET), 599.95),
+                new RentableVehicle(new Motorcycle("Harley-Davidson", "Street Bob", 700), 699.95),
+                new RentableVehicle(new Motorcycle("Kawasaki", "Ninja", 1000), 649.95)
+        ));
+
+        RentableVehicle vehicleToRent = (RentableVehicle) vehicles.getFirst();
+
+        vehicleToRent.rentOut();
 
         vehicles.forEach(System.out::println);
     }

@@ -13,4 +13,12 @@ public abstract class Vehicle {
     public String toString() {
         return make + " " + model;
     }
+
+    protected String getModel() {
+        return model;
+    }
+
+    protected String getMake() {
+        return make;
+    }
 }
